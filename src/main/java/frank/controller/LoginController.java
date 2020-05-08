@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/user")
 
@@ -36,5 +39,9 @@ public class LoginController {
         //重定向会改变url，转发不会改变url
         //在tomcat中重定向可以定向到外边的信息，比如百度，但是转发只能访问内部文件
         return  "redirect:/user/login";
+    }
+    @RequestMapping(value="/login4",method = RequestMethod.GET)
+    public String login4(HttpServletRequest request,HttpServletRequest response){
+        return "login.html";
     }
 }
